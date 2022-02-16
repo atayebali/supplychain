@@ -84,10 +84,10 @@ contract SupplyChain is
 
     // Define a modifier that checks the price and refunds the remaining balance
     modifier checkValue(uint256 _upc) {
+        _;
         uint256 _price = items[_upc].productPrice;
         uint256 amountToReturn = msg.value - _price;
         msg.sender.transfer(amountToReturn);
-        _;
     }
 
     // Define a modifier that checks if an item.state of a upc is Harvested
@@ -232,8 +232,8 @@ contract SupplyChain is
         payable
         forSale(_upc)
         paidEnough(items[_upc].productPrice)
-        checkValue(_upc)
         onlyDistributor
+        checkValue(_upc)
     {
         // Update the appropriate fields - ownerID, distributorID, itemState
         items[_upc].ownerID = msg.sender;
