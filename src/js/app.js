@@ -111,8 +111,9 @@ App = {
             App.fetchItemBufferOne();
             App.fetchItemBufferTwo();
             App.fetchEvents();
-
         });
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+
 
         return App.bindEvents();
     },
@@ -163,9 +164,13 @@ App = {
         }
     },
 
+
+
     harvestItem: function (event) {
         event.preventDefault();
         var processId = parseInt($(event.target).data('id'));
+
+        console.log(App.ownerID)
 
         App.contracts.SupplyChain.deployed().then(function (instance) {
             return instance.harvestItem(
@@ -176,6 +181,7 @@ App = {
                 App.originFarmLatitude,
                 App.originFarmLongitude,
                 App.productNotes
+
             );
         }).then(function (result) {
             $("#ftc-item").text(result);
@@ -235,7 +241,7 @@ App = {
 
         App.contracts.SupplyChain.deployed().then(function (instance) {
             const walletValue = web3.toWei(3, "ether");
-            return instance.buyItem(App.upc, { from: App.metamaskAccountID, value: walletValue });
+            return instance.buyItem(App.upc, { from: App.metamaskAccountID, value: walletValue, gas: 300000 });
         }).then(function (result) {
             $("#ftc-item").text(result);
             console.log('buyItem', result);
@@ -310,7 +316,17 @@ App = {
             return instance.fetchItemBufferTwo.call(App.upc);
         }).then(function (result) {
             $("#ftc-item").text(result);
-            console.log('fetchItemBufferTwo', result);
+            console.log('fetchItemBufferTwo-SKU', result[0].toString());
+            console.log('fetchItemBufferTwo-UPC', result[1].toString());
+            console.log('fetchItemBufferTwo-PID', result[2].toString());
+            console.log('fetchItemBufferTwo-Notes', result[3]);
+            console.log('fetchItemBufferTwo-Price', result[4].toString());
+            console.log('fetchItemBufferTwo-State', result[5].toString());
+            console.log('fetchItemBufferTwo-State', result[6].toString());
+            console.log('fetchItemBufferTwo-State', result[7].toString());
+            console.log('fetchItemBufferTwo-State', result[8].toString());
+
+
         }).catch(function (err) {
             console.log(err.message);
         });

@@ -303,7 +303,7 @@ contract('SupplyChain', function (accounts) {
         })
 
 
-        // Mark an item as Sold by calling function buyItem()
+        // Mark an item as Purchased by calling function purchaseItem()
         await supplyChain.purchaseItem(upc, { from: consumerID })
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()

@@ -84,10 +84,10 @@ contract SupplyChain is
 
     // Define a modifier that checks the price and refunds the remaining balance
     modifier checkValue(uint256 _upc) {
-        _;
         uint256 _price = items[_upc].productPrice;
         uint256 amountToReturn = msg.value - _price;
-        items[_upc].consumerID.transfer(amountToReturn);
+        msg.sender.transfer(amountToReturn);
+        _;
     }
 
     // Define a modifier that checks if an item.state of a upc is Harvested
@@ -276,7 +276,7 @@ contract SupplyChain is
     function purchaseItem(uint256 _upc) public received(_upc) onlyConsumer {
         // Update the appropriate fields - ownerID, consumerID, itemState
         items[_upc].ownerID = msg.sender;
-        items[_upc].consumerID = items[_upc].ownerID;
+        items[_upc].consumerID = msg.sender;
         items[_upc].itemState = State.Purchased;
         // Emit the appropriate event
         emit Purchased(_upc);
