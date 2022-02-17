@@ -1,6 +1,34 @@
 # Setup 
 
+To run the project follow these steps:
+1. Fetch npm packages: `npm install`
+2. Start Ganache and provide secret phrase:
+  `ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"`
+3. Deploy the contract: `truffle migrate`  
+4. Run dapp: `npm run dev`
+
 # Versions of Libs
+
+```
+node: v16.13.2
+├── eslint@8.7.0
+├── ganache-cli@6.12.2
+├── npm@8.4.1
+├── truffle-hdwallet-provider@1.0.17
+├── truffle@4.1.14
+├── web3@0.2.6
+```
+
+## Explanation of use
+
+Eslint: Was installed to help work with JS syntax on the test and dapp.
+Ganache Cli : Used to run local Blockchain 
+NPM: Used to run server and handle dev automation tasks
+Truffle HD Wallet : Used in order to connect and deploy my contract to Rinkeby.
+Truffle: Toolkit for development. Manage tasks like migrations and running tests.
+
+
+IPFS was not used in this project.
 
 # Public Testnet Info
 
