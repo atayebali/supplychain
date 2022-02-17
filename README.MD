@@ -71,3 +71,23 @@ Saving successful migration to network...
   ... 0x3a2483485a7b5c8c502651d2d1fafe1bf7044987730eeab8945eed6f1e40545e
 Saving artifacts...
 ```
+# UML
+
+## Activity Diagram
+
+![Screen Shot 2022-02-16 at 2 20 37 PM](https://user-images.githubusercontent.com/777379/154379877-3c4a9331-c0c4-470b-9db7-450feb602034.png)
+
+## State Diagram
+
+![Screen Shot 2022-02-16 at 2 35 49 PM](https://user-images.githubusercontent.com/777379/154379942-bb54d5c6-276d-48d7-84bf-5010b17f8217.png)
+
+## Sequence Diagram
+
+![Screen Shot 2022-02-16 at 2 52 18 PM](https://user-images.githubusercontent.com/777379/154379985-7bb1f919-7725-4d7d-86f9-1e389e58b1f0.png)
+
+## Class Diagram
+
+![Screen Shot 2022-02-16 at 3 27 58 PM](https://user-images.githubusercontent.com/777379/154380013-5fc22905-933d-44f7-ba1b-d1083efd6bcf.png)
+
+
+
